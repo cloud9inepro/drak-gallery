@@ -143,7 +143,7 @@ const characterContent = {
     ))}
   </div>
 
-  <p className="text-sm md:text-base text-gray-300 max-w-md leading-relaxed font-light">
+  <p className="text-sm md:text-base text-gray-300 max-w-[90%] sm:max-w-md md:max-w-xl leading-relaxed font-light">
     {characterContent[activeCharacter].text}
   </p>
 </section>
