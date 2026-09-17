@@ -36,9 +36,10 @@ const characterContent = {
         >
           <color attach="background" args={["#000"]} />
           <Suspense fallback={null}>
-            <DraggableLight />
+            
 
             <ScrollControls pages={5} damping={0.1}>
+              <DraggableLight />
               <Experience textRef1={textRef1} textRef2={textRef2} textRef3={textRef3} activeCharacter={activeCharacter} />
               <Scroll html>
                 {/* navigation */}

@@ -1,10 +1,11 @@
 import { useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { useRef, useState, useEffect } from "react";
-import { Html } from "@react-three/drei";
+import { Html, useScroll } from "@react-three/drei";
 import * as THREE from "three";
 
 const DRAG_PLANE_Z = 2;
 export function DraggableLight() {
+  const scroll = useScroll()
   const meshRef = useRef<THREE.Mesh>(null);
   const [dragging, setDragging] = useState(false);
   const [showHint, setShowHint] = useState(true);
@@ -25,13 +26,16 @@ export function DraggableLight() {
     (e.target as Element).setPointerCapture?.(e.pointerId);
     setDragging(true);
     setShowHint(false);
-    document.body.style.touchAction = "none"
+    if (scroll.el) scroll.el.style.touchAction = "none"
+    // document.body.style.touchAction = "none"
+    // console.log(handlePointerDown)
   };
 
   const handlePointerUp = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
     setDragging(false);
-    document.body.style.touchAction = ""
+    if (scroll.el) scroll.el.style.touchAction = "auto"
+    // document.body.style.touchAction = ""
   };
 
   useFrame(() => {
