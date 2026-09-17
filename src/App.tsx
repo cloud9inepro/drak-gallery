@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
 import { Suspense, useRef, useState } from "react";
 import { DraggableLight } from "./components/DraggableLight";
-import { ScrollControls, Scroll } from "@react-three/drei";
+import { ScrollControls, Scroll, Loader } from "@react-three/drei";
 import { ExhibitMap } from "./components/ExhibitMap";
 import { ClosingSection } from "./components/ClosingSection";
 
@@ -29,6 +29,7 @@ const characterContent = {
   return (
     <>
       <div className="w-vw h-dvh">
+        <Loader/>
         <Canvas
           camera={{ position: [0, 0, 5], fov: 50 }}
           style={{ touchAction: "none" }}

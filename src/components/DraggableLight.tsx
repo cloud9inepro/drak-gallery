@@ -25,11 +25,13 @@ export function DraggableLight() {
     (e.target as Element).setPointerCapture?.(e.pointerId);
     setDragging(true);
     setShowHint(false);
+    document.body.style.touchAction = "none"
   };
 
   const handlePointerUp = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
     setDragging(false);
+    document.body.style.touchAction = ""
   };
 
   useFrame(() => {
